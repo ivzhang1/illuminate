@@ -28,10 +28,14 @@ def get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect ):
     return limit_color(ambient + diffuse + specular)
 
 def calculate_ambient(alight, areflect):
-    return dot_product(alight, areflect)
+    return dot_product_asLIST(alight, areflect)
 
 def calculate_diffuse(light, dreflect, normal):
-    return dreflect * normal * light * DIFFUSE
+    cos = dot_product(normal, light[LOCATION])
+    if cos < 0:
+        return [0,0,0]
+    new_l = dot_product_asLIST(light[COLOR], dreflect)
+    return [newl[i] * cos for i in range(3)]
 
 def calculate_specular(light, sreflect, view, normal):
     return dot_product(view, dot_product(normal, light))
@@ -56,6 +60,10 @@ def normalize(vector):
 #Return the dot porduct of a . b
 def dot_product(a, b):
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+
+def dot_product_asLIST(a, b):
+    return [a[0] * b[0],  a[1] * b[1], a[2] * b[2]]
+
 
 #Calculate the surface normal for the triangle whose first
 #point is located at index i in polygons
