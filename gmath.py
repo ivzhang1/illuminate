@@ -33,15 +33,14 @@ def get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect ):
     return limit_color([a[i]+d[i]+s[i] for i in range(3)])
 
 def calculate_ambient(alight, areflect):
-    return dot_product_asLIST(alight, areflect)
+    return dot_product_asLIST([alight, areflect])
 
 def calculate_diffuse(light, dreflect, normal):
     cos = dot_product(normal, light[LOCATION])
     if cos < 0:
         return [0,0,0]
-    new_l = dot_product_asLIST(light[COLOR], dreflect)
+    return dot_product_asLIST([light[COLOR], dreflect, [cos,cos,cos]])
 
-    return [newl[i] * cos for i in range(3)]
 
 def calculate_specular(light, sreflect, view, normal):
     cos = dot_product(normal, light[LOCATION])
@@ -50,9 +49,10 @@ def calculate_specular(light, sreflect, view, normal):
     cos *= 2
     m = [cos * normal[i] * light[LOCATION][i] for i in range(3)]
     d = dot_product(m, view) ** SPECULAR_EXP
-    new_l = dot_product_asLIST(light[COLOR], sreflect)
 
-    return [newl[i] * d for i in range(3)]
+    return dot_product_asLIST([light[COLOR], sreflect, [d,d,d]])
+
+
 
 def limit_color(color):
     for i in range(len(color)):
@@ -75,8 +75,9 @@ def normalize(vector):
 def dot_product(a, b):
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 
-def dot_product_asLIST(a, b):
-    return [a[0] * b[0],  a[1] * b[1], a[2] * b[2]]
+def dot_product_asLIST(a):
+    x = [[a[j][i] for j in range(len(a))] for i in range(3)]
+    return [int(reduce(lambda a,b : a * b, x[i])) for i in range(len(x)) ]
 
 
 #Calculate the surface normal for the triangle whose first
