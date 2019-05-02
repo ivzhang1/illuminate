@@ -1,0 +1,153 @@
+rotate
+y 70
+move
+199 103 37 58
+box
+411 438 106 169 294 80
+rotate
+y 318
+sphere
+23 251 425 60
+box
+384 370 59 302 21 43
+sphere
+444 373 191 4
+sphere
+105 272 427 48
+rotate
+z 62
+box
+402 351 389 106 289 42
+sphere
+467 85 32 14
+move
+403 115 348 8
+torus
+370 31 260 469 91
+torus
+389 76 432 81 64
+rotate
+x 77
+rotate
+x 53
+box
+449 296 414 143 259 15
+sphere
+185 14 346 67
+rotate
+z 186
+sphere
+10 287 301 15
+sphere
+412 57 52 51
+box
+362 305 497 248 236 38
+move
+4 299 491 23
+move
+109 64 263 15
+box
+215 88 158 379 190 31
+sphere
+493 389 453 39
+move
+141 106 218 53
+torus
+390 405 172 176 56
+box
+376 48 67 62 70 29
+box
+328 23 413 417 449 74
+rotate
+y 350
+box
+310 307 272 77 279 88
+sphere
+457 349 33 36
+move
+464 82 465 18
+move
+130 317 435 80
+move
+452 386 193 26
+rotate
+x 154
+sphere
+194 404 275 89
+torus
+298 300 70 270 13
+move
+367 160 365 72
+torus
+447 289 350 282 51
+sphere
+437 145 484 68
+rotate
+z 67
+box
+36 265 133 51 15 32
+sphere
+485 402 270 83
+sphere
+369 268 454 25
+rotate
+z 160
+sphere
+150 359 341 67
+sphere
+444 494 175 9
+torus
+274 64 498 234 32
+move
+490 375 145 49
+sphere
+62 131 18 70
+box
+253 93 453 296 430 5
+sphere
+137 472 390 21
+move
+162 143 134 51
+rotate
+z 302
+torus
+171 175 72 244 20
+move
+249 456 72 64
+sphere
+480 482 427 68
+box
+248 436 323 486 81 15
+torus
+379 63 441 117 49
+torus
+22 2 200 37 59
+rotate
+z 190
+move
+277 110 461 77
+torus
+422 94 155 45 34
+box
+344 397 298 371 301 5
+rotate
+z 36
+sphere
+371 478 225 71
+rotate
+y 58
+sphere
+54 123 379 45
+box
+268 7 51 141 18 99
+move
+326 486 90 47
+box
+491 167 479 33 138 5
+rotate
+z 311
+torus
+226 92 396 185 9
+display
+save
+randy.png
