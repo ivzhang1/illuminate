@@ -28,7 +28,7 @@ def get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect ):
     return limit_color(ambient + diffuse + specular)
 
 def calculate_ambient(alight, areflect):
-    return alight * areflect * AMBIENT
+    return dot_product(alight, areflect)
 
 def calculate_diffuse(light, dreflect, normal):
     return dreflect * normal * light * DIFFUSE
@@ -37,10 +37,11 @@ def calculate_specular(light, sreflect, view, normal):
     return dot_product(view, dot_product(normal, light))
 
 def limit_color(color):
-    if(color < 0):
-        return 0
-    if(color > 255):
-        return 255
+    for i in range(len(color)):
+        if color[i] > 255:
+            color[i] = 255
+        if color[i] < 0:
+            color[i] = 0
     return color
 
 #vector functions
