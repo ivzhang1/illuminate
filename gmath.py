@@ -22,11 +22,15 @@ SPECULAR_EXP = 4
 
 #lighting functions
 def get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect ):
-    ambient = AMBIENT*calculate_ambient(alight, areflect)
-    diffuse = DIFFUSE*calculate_diffuse(alight, dreflect, normal)
-    specular = SPECULAR*calculate_specular(alight, sreflect, view, normal)
-    
-    return limit_color(ambient + diffuse + specular)
+    normalize(normal)
+    normalize(light[LOCATION])
+    normalize(view)
+
+    a = calculate_ambient(ambient, areflect)
+    d = calculate_diffuse(light, dreflect, normal)
+    s = calculate_specular(light, sreflect, view, normal)
+
+    return limit_color([a[i]+d[i]+s[i] for i in range(3)])
 
 def calculate_ambient(alight, areflect):
     return dot_product_asLIST(alight, areflect)
